@@ -1,0 +1,12 @@
+# anytime we're using docker we have to use sudo
+sudo: required
+services:
+  # travis ci is going to automatically install a copy of docker into our container
+  - docker
+
+before_install:
+  - docker build -t sitvanit/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true sitvanit/docker-react npm run test -- --coverage
+
