@@ -1,5 +1,6 @@
 # anytime we're using docker we have to use sudo
 sudo: required
+language: javascript
 services:
   # travis ci is going to automatically install a copy of docker into our container
   - docker
