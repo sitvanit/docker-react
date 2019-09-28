@@ -1,6 +1,5 @@
 # anytime we're using docker we have to use sudo
 sudo: required
-language: javascript
 services:
   # travis ci is going to automatically install a copy of docker into our container
   - docker
@@ -26,7 +25,7 @@ deploy:
   on:
     branch: master
   # api keys give to travis access to AWS - we should generate it with service IAM
-  # IAM => users => Add user => user name: docker-react-travis-ci => add programmatic user => attach existing policies directly => search for beanstalk => choose provide full access => create user
+  # IAM (Identity and Access management) => users => Add user => user name: docker-react-travis-ci => add programmatic user => attach existing policies directly => search for beanstalk => choose provide full access => create user
   # we don't want to put our Access key ID and Secret access key here, because all of the github users will see it.
   # we should go to travis settings => environment variables (they are encrypted and stored by travis) no display.
   access_key_id:
