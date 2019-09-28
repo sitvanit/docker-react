@@ -11,6 +11,8 @@ RUN npm run build
 
 # Run phase - Use nginx
 FROM nginx
+## expose outside the container the nginx dedault port - necessary for elastic beanstalk
+EXPOSE 80
 ## Copy over the result of 'npm run build'
 COPY --from=builder /app/build /usr/share/nginx/html
 
